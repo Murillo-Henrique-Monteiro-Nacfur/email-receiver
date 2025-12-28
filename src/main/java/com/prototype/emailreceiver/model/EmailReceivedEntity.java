@@ -1,7 +1,15 @@
-package com.postech.fiap.model;
+package com.prototype.emailreceiver.model;
+
+import java.time.LocalDateTime;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "email-received", schema = "public")
@@ -20,7 +28,8 @@ public class EmailReceivedEntity extends PanacheEntityBase {
 
     @Column(nullable = false, length = 255)
     private String orignalDestination;
-        @Column(nullable = false, length = 255)
+    
+    @Column(nullable = false, length = 255)
     private String orignalSender;
 
     @Column(nullable = false, length = 255)
@@ -29,8 +38,9 @@ public class EmailReceivedEntity extends PanacheEntityBase {
     @Column(name = "date_hour_creation")
     private LocalDateTime dateHourCriation;
 
-        @Column(name = "date_hour_received")
+    @Column(name = "date_hour_received")
     private LocalDateTime dateHourReceived;
+
     public EmailReceivedEntity() {
     }
 

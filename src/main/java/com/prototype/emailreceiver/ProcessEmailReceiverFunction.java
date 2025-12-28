@@ -1,13 +1,11 @@
-package com.postech.fiap;
-
-import com.postech.fiap.usecase.GenerateReportUseCase;
-import io.quarkus.funqy.Funq;
-import jakarta.enterprise.context.ApplicationScoped;
-import jakarta.inject.Inject;
+package com.prototype.emailreceiver;
 
 import java.io.IOException;
 import java.util.Map;
 import java.util.logging.Logger;
+
+import io.quarkus.funqy.Funq;
+import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
 public class ProcessEmailReceiverFunction {
@@ -27,7 +25,7 @@ public class ProcessEmailReceiverFunction {
 
     @Funq("emailReceiverProcessor")
     public void scheduledReport(PubSubMessage message) throws IOException {
-        LOGGER.info("Scheduler trigger received. Message ID: " + message.message.data);
+        LOGGER.info("Scheduler trigger received. Message ID: "+ message.message.data);
 
         LOGGER.info("Scheduled task finished.");
     }
